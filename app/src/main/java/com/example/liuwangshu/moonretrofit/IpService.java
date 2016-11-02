@@ -4,12 +4,13 @@ import com.example.liuwangshu.moonretrofit.model.IpModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Headers;
 
-/**
- * Created by Administrator on 2016/9/9 0009.
- */
-public interface IpService{
-    @GET("getIpInfo.php")
-    Call<IpModel> getIpMsg(@Query("ip")String ip);
+public interface IpService {
+    @Headers({
+            "Accept-Encoding: application/json",
+            "User-Agent: MoonRetrofit"
+    })
+    @GET("getIpInfo.php?ip=59.108.54.37")
+    Call<IpModel> getIpMsg();
 }
